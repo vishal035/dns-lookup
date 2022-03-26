@@ -1,0 +1,23 @@
+{
+  "name": "dns-lookup",
+  "version": "1.0.0",
+  "description": "A tool to lookup all the information about a site DNS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishal035/dns-lookup.git"
+  },
+  "keywords": [
+    "dns-lookup",
+    "webtool"
+  ],
+  "author": "HazeLogics",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishal035/dns-lookup/issues"
+  },
+  "homepage": "https://github.com/vishal035/dns-lookup#readme"
+}
