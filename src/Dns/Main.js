@@ -21,21 +21,15 @@ const Dns = {
       console.log(error);
     }
   },
-
-  // Dns Lookup Function
-  async lookUp(data) {
-    const options = { all: true, verbatim: true };
-    const lookUpData = await dnsPromise.lookup(data.domain, options);
-    console.log('Lookup Data from Dns Module:', lookUpData);
-    return lookUpData;
-  },
 };
 
+// Dns Lookup Function
+Dns.lookUp = async function (data) {
+  const lookUpData = await dnsPromise.lookup(data.domain);
+  console.log('Lookup Data from Dns Module:', lookUpData);
+  return lookUpData;
+};
+
+
+
 module.exports = Dns;
-
-/*
-{
-  domain: "",
-
-}
-*/
