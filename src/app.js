@@ -29,9 +29,9 @@ app.get('/', (req, res) => {
 app.get('/dns', async (req, res) => {
   console.log(req.body);
   const data = await resData.lookUp(req.body);
-  console.log(data);
+  console.log('Data from App.js: ', data);
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).send(resData.lookUp(req.body));
+  res.status(200).send(await resData.lookUp(req.body));
 });
 
 // Hello Route

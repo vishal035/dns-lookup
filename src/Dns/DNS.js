@@ -4,8 +4,8 @@
  */
 
 // Core Dependencies
-// const dns = require('node:dns/promises'); // We have to use this
-const dns = require('node:dns'); // For starting only
+const dnsPromise = require('node:dns/promises'); // Async Versio
+// const dns = require('node:dns'); // Syn version
 
 // 3rd Party Dependencies
 
@@ -14,11 +14,9 @@ const resData = {};
 
 // Dns Lookup Function
 resData.lookUp = async function (data) {
-  await dns.lookup(data.domain, function (error, addres, family) {
-    if (error) return { error: 'Somthing Went Wrong or Private Dns' };
-    // console.log({ addres, family });
-    return { addres, family };
-  });
+  const lookUpData = await dnsPromise.lookup(data.domain);
+  console.log('Lookup Data from Dns Module:', lookUpData);
+  return lookUpData;
 };
 
 module.exports = resData;
