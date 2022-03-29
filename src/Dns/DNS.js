@@ -13,8 +13,8 @@ const dns = require('node:dns'); // For starting only
 const resData = {};
 
 // Dns Lookup Function
-resData.lookp = function (data) {
-  dns.lookup(data.domain, function (error, addres, family) {
+resData.lookUp = async function (data) {
+  await dns.lookup(data.domain, function (error, addres, family) {
     if (error) return { error: 'Somthing Went Wrong or Private Dns' };
     // console.log({ addres, family });
     return { addres, family };
