@@ -4,7 +4,8 @@
   "description": "A tool to lookup all the information about a site DNS",
   "main": "app.js",
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/vishal035/dns-lookup/issues"
   },
-  "homepage": "https://github.com/vishal035/dns-lookup#readme"
+  "homepage": "https://github.com/vishal035/dns-lookup#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
