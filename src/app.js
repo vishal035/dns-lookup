@@ -4,8 +4,8 @@
  */
 
 // Core Dependencies
-const hello = require('./Utils/Hello');
-const resData = require('./Dns/DNS');
+const Hello = require('./Utils/Hello');
+const Dns = require('./Dns/Main');
 
 // 3rd Party Dependencies
 const express = require('express');
@@ -28,16 +28,22 @@ app.get('/', (req, res) => {
 // DNS Main Lookup Route
 app.get('/dns', async (req, res) => {
   console.log(req.body);
-  const data = await resData.lookUp(req.body);
+  const data = await Dns.lookUp(req.body);
   console.log('Data from App.js: ', data);
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).send(await resData.lookUp(req.body));
+  res.status(200).send(await Dns.lookUp(req.body));
+});
+
+// Dns Main/Resolve Route
+app.get('/dns/resolve', async (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200).send(await Dns.resolve(req.body));
 });
 
 // Hello Route
-app.get('/hello', (req, res) => {
+app.get('/Hello', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).send(hello);
+  res.status(200).send(Hello);
 });
 
 // Server Starting
