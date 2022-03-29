@@ -26,6 +26,16 @@ app.get('/', (req, res) => {
 });
 
 // DNS Main Lookup Route
+/*
+Postmain Raw Json Input
+{
+    "domain": "google.com"
+}
+
+
+
+*/
+
 app.get('/dns', async (req, res) => {
   console.log(req.body);
   const data = await Dns.lookUp(req.body);
@@ -35,6 +45,18 @@ app.get('/dns', async (req, res) => {
 });
 
 // Dns Main/Resolve Route
+/*
+Postmain Raw Json Input
+{
+    "domain": "dorkyclicks.com",
+    "rrtype": "TXT"
+}
+    ///////////////////////////////////
+    rrtype can be vary from A, AAAA, CAA, MX,etc
+
+
+
+*/
 app.get('/dns/resolve', async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.status(200).send(await Dns.resolve(req.body));
