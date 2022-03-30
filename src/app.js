@@ -31,15 +31,11 @@ Postmain Raw Json Input
 {
     "domain": "google.com"
 }
-
-
-
 */
 
 app.get('/dns', async (req, res) => {
-  console.log(req.body);
-  const data = await Dns.lookUp(req.body);
-  console.log('Data from App.js: ', data);
+  // console.log(req.body);
+  // console.log('Data from App.js: ', data);
   res.setHeader('Content-Type', 'application/json');
   res.status(200).send(await Dns.lookUp(req.body));
 });
@@ -53,9 +49,6 @@ Postmain Raw Json Input
 }
     ///////////////////////////////////
     rrtype can be vary from A, AAAA, CAA, MX,etc
-
-
-
 */
 app.get('/dns/resolve', async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
@@ -68,7 +61,10 @@ app.get('/Hello', (req, res) => {
   res.status(200).send(Hello);
 });
 
-console.log("sharma codes")
+// 404 Error Page
+app.get('*', (req, res) => {
+  res.status(404).send({ Error: 'Wrong Path bro 😅👋' });
+});
 
 // Server Starting
 app.listen(port, () => {
