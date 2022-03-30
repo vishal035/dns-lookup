@@ -27,19 +27,6 @@ const Dns = {
     }
   },
 
-  // Dns Lookup by Ip Function
-  // Resolves the given address and port into a host name and service using the operating system's underlying getnameinfo implementation.
-  async lookUpIP(data = {}) {
-    try {
-      const lookUpIPData = await dnsPromise.lookupService(data.ip, data.port);
-      return lookUpIPData;
-    } catch (error) {
-      // On an error, err is an Error object, where err.code is the error code.
-      // console.log(error);
-      return error;
-    }
-  },
-
   // Dns Reslove Function
   // Details Check on Readme.MD File
   async resolve(data = {}) {
@@ -49,6 +36,19 @@ const Dns = {
         data.rrtype !== 'undefined' ? data.rrtype : 'A'
       );
     } catch (error) {
+      // console.log(error);
+      return error;
+    }
+  },
+
+  // Dns Lookup by Ip Function
+  // Resolves the given address and port into a host name and service using the operating system's underlying getnameinfo implementation.
+  async lookUpIP(data = {}) {
+    try {
+      const lookUpIPData = await dnsPromise.lookupService(data.ip, data.port);
+      return lookUpIPData;
+    } catch (error) {
+      // On an error, err is an Error object, where err.code is the error code.
       // console.log(error);
       return error;
     }
