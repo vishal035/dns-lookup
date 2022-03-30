@@ -98,7 +98,7 @@ app.get('/dns/mx', async (req, res) => {
 });
 
 // Dns Main/ResolveNAPTR Route
-app.get('/dns/maptr', async (req, res) => {
+app.get('/dns/naptr', async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.status(200).send(await Dns.resolveNAPTR(req.body));
 });
