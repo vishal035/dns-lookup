@@ -4,7 +4,6 @@
  */
 
 // Core Dependencies
-const Hello = require('./Utils/Hello');
 const Routes = require('./Routes/Routes');
 
 // 3rd Party Dependencies
