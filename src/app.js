@@ -6,6 +6,7 @@
 // Core Dependencies
 const Hello = require('./Utils/Hello');
 const Routes = require('./Routes/Routes');
+
 // 3rd Party Dependencies
 const express = require('express');
 
@@ -15,7 +16,7 @@ const app = express();
 // Express App Settings
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(Routes());
+app.use(Routes);
 
 // Global ENV Variables
 const port = 3000;

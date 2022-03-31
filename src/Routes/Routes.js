@@ -4,6 +4,8 @@
  */
 
 // Core Dependencies
+const Dns = require('../Dns/Main');
+
 // 3rd Party Dependencies
 const express = require('express');
 
@@ -123,4 +125,4 @@ router.get('/dns/txt', async (req, res) => {
   res.status(200).send(await Dns.resolveTXT(req.body));
 });
 
-exports.Routes = router;
+module.exports = router;
