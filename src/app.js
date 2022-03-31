@@ -18,10 +18,10 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use(Routes);
 
 // Global ENV Variables
-const port = process.env.PORT | 3000;
+const port = process.env.PORT || 3000;
 
 // Hello Route
-app.get('/Hello', (req, res) => {
+app.get('/hello', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.status(200).send(Hello);
 });
