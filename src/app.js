@@ -23,7 +23,7 @@ const port = process.env.PORT || 3000;
 // Hello Route
 app.get('/hello', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).send(Hello);
+  res.status(200).send('Hello');
 });
 
 // 404 Error Page
