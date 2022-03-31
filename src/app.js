@@ -4,8 +4,8 @@
  */
 
 // Core Dependencies
-const hello = require('./Utils/Hello');
-const resData = require('./Dns/DNS');
+const Hello = require('./Utils/Hello');
+const Routes = require('./Routes/Routes');
 
 // 3rd Party Dependencies
 const express = require('express');
@@ -16,28 +16,20 @@ const app = express();
 // Express App Settings
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(Routes);
 
 // Global ENV Variables
 const port = 3000;
 
-// Main Server init Code
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-// DNS Main Lookup Route
-app.get('/dns', async (req, res) => {
-  console.log(req.body);
-  const data = await resData.lookUp(req.body);
-  console.log(data);
-  res.setHeader('Content-Type', 'application/json');
-  res.status(200).send(resData.lookUp(req.body));
-});
-
 // Hello Route
-app.get('/hello', (req, res) => {
+app.get('/Hello', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).send(hello);
+  res.status(200).send(Hello);
+});
+
+// 404 Error Page
+app.get('*', (req, res) => {
+  res.status(404).send({ Error: 'Wrong Path bro 😅👋' });
 });
 
 // Server Starting
