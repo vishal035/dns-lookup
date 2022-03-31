@@ -14,7 +14,7 @@ const router = express.Router({ caseSensitive: true });
 
 // Main Server init Code
 router.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send({ info: 'Dns Lookup API' });
 });
 
 // DNS Main Lookup Route
