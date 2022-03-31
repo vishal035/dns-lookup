@@ -4,7 +4,7 @@
   "description": "A tool to lookup all the information about a site DNS",
   "main": "app.js",
   "engines": {
-    "node": "17.6.0"
+    "node": "17.6"
   },
   "scripts": {
     "start": "node ./src/app.js",
